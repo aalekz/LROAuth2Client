@@ -402,6 +402,10 @@
 					"\"$(SRCROOT)/Vendor/yajl-objc/Project-IPhone/build/Framework\"",
 					"\"$(SRCROOT)/Classes\"",
 					"\"$(SRCROOT)/Vendor\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Example/TestApp/Frameworks\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Example/TestAppIOS/Frameworks\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Project/Frameworks\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Project-iOS/Libraries\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -427,6 +431,10 @@
 					"\"$(SRCROOT)/Vendor/yajl-objc/Project-IPhone/build/Framework\"",
 					"\"$(SRCROOT)/Classes\"",
 					"\"$(SRCROOT)/Vendor\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Example/TestApp/Frameworks\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Example/TestAppIOS/Frameworks\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Project/Frameworks\"",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Project-iOS/Libraries\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;

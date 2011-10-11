@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequestDelegate.h"
 #import "LROAuth2ClientDelegate.h"
+#import "SBJson.h"
 
 @class LROAuth2AccessToken;
 
@@ -33,7 +34,7 @@
 @property (nonatomic, copy) NSURL *cancelURL;
 @property (nonatomic, copy) NSURL *userURL;
 @property (nonatomic, copy) NSURL *tokenURL;
-@property (nonatomic, readonly) LROAuth2AccessToken *accessToken;
+@property (nonatomic, assign) LROAuth2AccessToken *accessToken;
 @property (nonatomic, assign) id<LROAuth2ClientDelegate> delegate;
 @property (nonatomic, assign) BOOL debug;
 

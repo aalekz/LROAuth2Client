@@ -9,7 +9,6 @@
 #import "LROAuth2Client.h"
 #import "ASIHTTPRequest.h"
 #import "NSURL+QueryInspector.h"
-#import "NSObject+YAJL.h"
 #import "LROAuth2AccessToken.h"
 #import "NSDictionary+QueryString.h"
 
@@ -154,7 +153,7 @@
   }
   
   NSError *parseError = nil;
-  NSDictionary *authorizationData = [[request responseData] yajl_JSON:&parseError];
+  NSDictionary *authorizationData = [[request responseString] JSONValue];
     
   if(self.debug) {
       NSLog(@"AuthorizationData: %@", authorizationData);
