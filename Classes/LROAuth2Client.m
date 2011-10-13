@@ -35,7 +35,7 @@
     clientSecret = [_secret copy];
     redirectURL = [url copy];
     requests = [[NSMutableArray alloc] init];
-    debug = NO;
+    debug = YES;
   }
   return self;
 }
@@ -116,7 +116,7 @@
 
 - (void)refreshAccessToken:(LROAuth2AccessToken *)_accessToken;
 {
-  accessToken = [_accessToken retain];
+  self.accessToken = [_accessToken retain];
   
   NSDictionary *params = [NSMutableDictionary dictionary];
   [params setValue:@"refresh" forKey:@"type"];
@@ -169,7 +169,7 @@
     }
   }  
   if (accessToken == nil) {
-    accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
+    self.accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
     if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
       [self.delegate oauthClientDidReceiveAccessToken:self];
     } 
@@ -221,6 +221,14 @@
     return NO;
   }
   return YES;
+}
+
+- (void)setAccessToken:(LROAuth2AccessToken *)token {
+    [accessToken autorelease];
+    accessToken = [token retain];
+    
+    // Send notification that the token has changed
+    [[NSNotificationCenter defaultCenter] postNotificationName:OAuthAccessTokenChangedNotification object:accessToken];
 }
 
 /**

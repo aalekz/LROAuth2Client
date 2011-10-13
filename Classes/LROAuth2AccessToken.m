@@ -53,7 +53,7 @@
   NSMutableDictionary *tokenData = [self.authResponseData mutableCopy];
 
   [tokenData setObject:[data valueForKey:@"access_token"] forKey:@"access_token"];
-  [tokenData setObject:[data objectForKey:@"expires_in"]  forKey:@"expires_in"];
+  //[tokenData setObject:[data objectForKey:@"expires_in"]  forKey:@"expires_in"];
   
   [self setAuthResponseData:tokenData];
   [tokenData release];
