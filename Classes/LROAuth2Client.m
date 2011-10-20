@@ -169,7 +169,7 @@
     }
   }  
   if (accessToken == nil) {
-    self.accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
+    self.accessToken = [[[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData] autorelease];
     if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
       [self.delegate oauthClientDidReceiveAccessToken:self];
     } 
