@@ -77,7 +77,7 @@
   [authRequest setHTTPMethod:@"GET"];
   
   if(self.debug) {
-    NSLog(@"URL: %@", fullURL);
+    //NSLog(@"URL: %@", fullURL);
   }
 
   return [[authRequest copy] autorelease];
@@ -109,7 +109,7 @@
     [request startAsynchronous];
     
     if(self.debug) {
-      NSLog(@"Request: POST %@\n%@\n\n%@", self.tokenURL, [request requestHeaders], [params stringWithFormEncodedComponents]);
+      //NSLog(@"Request: POST %@\n%@\n\n%@", self.tokenURL, [request requestHeaders], [params stringWithFormEncodedComponents]);
     }
   }
 }
@@ -142,21 +142,21 @@
 - (void)requestStarted:(ASIHTTPRequest *)request
 {
   if (self.debug) {
-    NSLog(@"[oauth] starting verification request");
+    //NSLog(@"[oauth] starting verification request");
   }
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
   if (self.debug) {
-    NSLog(@"[oauth] finished verification request, %@ (%d)", [request responseString], [request responseStatusCode]);
+    //NSLog(@"[oauth] finished verification request, %@ (%d)", [request responseString], [request responseStatusCode]);
   }
   
   NSError *parseError = nil;
   NSDictionary *authorizationData = [[request responseString] JSONValue];
     
   if(self.debug) {
-      NSLog(@"AuthorizationData: %@", authorizationData);
+      //NSLog(@"AuthorizationData: %@", authorizationData);
   }
     
   if (parseError) {
@@ -188,7 +188,7 @@
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
   if (self.debug) {
-    NSLog(@"[oauth] request failed with code %d, %@", [request responseStatusCode], [request responseString]);
+    //NSLog(@"[oauth] request failed with code %d, %@", [request responseStatusCode], [request responseString]);
   }
 }
 
@@ -241,7 +241,7 @@
   if ([failingURLString hasPrefix:[self.redirectURL absoluteString]]) {
     [webView stopLoading];
     if(self.debug) {
-      NSLog(@"Webview Failed");
+      //NSLog(@"Webview Failed");
     }
     [self extractAccessCodeFromCallbackURL:[NSURL URLWithString:failingURLString]];
   } else if (self.cancelURL && [failingURLString hasPrefix:[self.cancelURL absoluteString]]) {
@@ -256,8 +256,8 @@
 {
   NSString *accessCode = [[callbackURL queryDictionary] valueForKey:@"code"];
   if(self.debug) {
-    NSLog(@"Query: %@", callbackURL);
-    NSLog(@"Access-code: %@", accessCode);
+    //NSLog(@"Query: %@", callbackURL);
+    //NSLog(@"Access-code: %@", accessCode);
   }
     
   if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessCode:)]) {
