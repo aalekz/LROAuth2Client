@@ -35,7 +35,7 @@
     clientSecret = [_secret copy];
     redirectURL = [url copy];
     requests = [[NSMutableArray alloc] init];
-    debug = YES;
+    debug = NO;
   }
   return self;
 }
