@@ -76,9 +76,9 @@
   NSMutableURLRequest *authRequest = [NSMutableURLRequest requestWithURL:fullURL];
   [authRequest setHTTPMethod:@"GET"];
   
-  if(self.debug) {
-    //NSLog(@"URL: %@", fullURL);
-  }
+  //if(self.debug) {
+    NSLog(@"URL: %@", fullURL);
+  //}
 
   return [[authRequest copy] autorelease];
 }
